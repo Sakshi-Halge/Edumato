@@ -1,0 +1,67 @@
+#header-listing {
+  height: 13vh;
+  width: 100%;
+  background-color: #ce0505;
+  display: flex;
+  justify-content: space-around;
+}
+
+.logo-listing-sec {
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo-listing-circle-listing {
+  height: 70px;
+  width: 70px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.logo-listing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #eb2929;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+
+.login-listing-acc {
+  width: 85%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#login-listing {
+  display: inline-block;
+  margin-right: 3%;
+  margin-left: 12%;
+}
+
+#login-listing a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+#acc-btn-listing {
+  outline: none;
+  font-family: "Poppins";
+  background-color: transparent;
+  padding: 5px 13px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #ffff;
+  color: #ffffff;
+  line-height: 1.6;
+  cursor: pointer;
+  margin-right: 80px;
+}
