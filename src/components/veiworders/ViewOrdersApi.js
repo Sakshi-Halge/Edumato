@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactPaginate from "react-paginate";
-import Header from "../Header";
+import Header from "../Header/Header";
 import ViewOrdersDisplay from "./ViewOrdersDisplay";
 import "./ViewOrders.css";
 

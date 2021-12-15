@@ -5,7 +5,7 @@ import "react-web-tabs/dist/react-web-tabs.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Header from "../Header";
+import Header from "../Header/Header";
 import ProceedOrder from "./ProceedOrder";
 import "./RestaurantDetailsDisplay.css";
 

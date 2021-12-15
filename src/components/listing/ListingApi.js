@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "../Header";
+import Header from "../Header/Header";
 import CuisineFilter from "./filter/CuisineFilter";
 import CostFilter from "./filter/CostFilter"
 import SortFilter from "./filter/SortFilter"
