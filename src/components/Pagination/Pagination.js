@@ -8,25 +8,8 @@ class Pagination extends Component {
     super();
     this.state = {
       activeNum: 1,
-      restrictedPrev: true,
-      restrictedNext: false,
     };
   }
-
-  changeInterval = (index) => {
-    this.props.setResIndexes(index * limit - limit, index * limit);
-    this.setState({ activeNum: index }, () => {
-      if (this.state.activeNum === 1) {
-        this.setState({ restrictedPrev: true }, () => {
-          this.setState({ restrictedNext: false });
-        });
-      } else if (this.state.activeNum === this.props.dataLen / limit) {
-        this.setState({ restrictedNext: true }, () => {
-          this.setState({ restrictedPrev: false });
-        });
-      }
-    });
-  };
 
   previousInterval = () => {
     if (this.state.activeNum > 1) {
@@ -87,17 +70,11 @@ class Pagination extends Component {
     return (
       <>
         <ul className="pagination-sec">
-          <li
-            onClick={this.previousInterval}
-            // className={this.state.restrictedPrev ? "restricted" : ""}
-          >
+          <li onClick={this.previousInterval}>
             <i className="fas fa-chevron-left"></i>
           </li>
           {this.renderPageNumbers(this.props.dataLen)}
-          <li
-            onClick={this.nextInterval}
-            // className={this.state.restrictedNext ? "restricted" : ""}
-          >
+          <li onClick={this.nextInterval}>
             <i className="fas fa-chevron-right"></i>
           </li>
         </ul>

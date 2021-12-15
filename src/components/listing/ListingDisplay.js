@@ -76,9 +76,11 @@ class ListingDisplay extends Component {
         );
       }
     } else {
-      return <div className="search-box-no">
-        <h1>No results found</h1>
-      </div>;
+      return (
+        <div className="search-box-no">
+          <h1 style={{ color: "var(--dark-blue)" }}>No results found</h1>
+        </div>
+      );
     }
   };
 
@@ -86,13 +88,16 @@ class ListingDisplay extends Component {
     return (
       <>
         {this.res_info_box(this.props.res_list)}
-        {this.props.hasdata ?  <Pagination
-          dataLen={this.props.res_list.length}
-          setResIndexes={(findex, lindex) => {
-            this.setDataInterval(findex, lindex);
-          }}
-        /> : ''}
-       
+        {this.props.hasdata ? (
+          <Pagination
+            dataLen={this.props.res_list.length}
+            setResIndexes={(findex, lindex) => {
+              this.setDataInterval(findex, lindex);
+            }}
+          />
+        ) : (
+          ""
+        )}
       </>
     );
   }

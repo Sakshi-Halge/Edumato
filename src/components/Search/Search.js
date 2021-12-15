@@ -52,9 +52,7 @@ class Search extends Component {
   };
 
   ResListClass = () => {
-    this.setState({ filterResClass: !this.state.filterResClass }, () => {
-      console.log(this.state.filterResClass);
-    });
+    this.setState({ filterResClass: !this.state.filterResClass });
   };
 
   handleLogout= () => {

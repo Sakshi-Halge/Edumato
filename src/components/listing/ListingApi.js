@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import CuisineFilter from "./filter/CuisineFilter";
-import CostFilter from "./filter/CostFilter"
-import SortFilter from "./filter/SortFilter"
+import CostFilter from "./filter/CostFilter";
+import SortFilter from "./filter/SortFilter";
 import ListingDisplay from "./ListingDisplay";
 import "./ListingApi.css";
 
@@ -15,13 +15,13 @@ class ListingApi extends Component {
     this.state = {
       restaurantsList: "",
       mealId: "",
-      hasData : true,
+      hasData: true,
     };
   }
 
   hasDatainList = (val) => {
-    this.setState({hasData: val});
-  }
+    this.setState({ hasData: val });
+  };
 
   setDataAsPerFilter = (data) => {
     this.setState({ restaurantsList: data });
@@ -98,7 +98,7 @@ class ListingApi extends Component {
               <ListingDisplay
                 res_list={this.state.restaurantsList}
                 mealId={this.props.match.params.mealId}
-                hasdata = {this.state.hasData}
+                hasdata={this.state.hasData}
               />
             </div>
           </div>
@@ -109,15 +109,15 @@ class ListingApi extends Component {
 
   componentDidUpdate() {
     window.scrollTo(0, 0);
+    const filter_search = this.refs.filterSec;
+    filter_search.classList.remove("filter-active");
   }
 
   componentDidMount() {
     let mealId = this.props.match.params.mealId;
-    
+
     this.setState({ mealId: mealId }, () => {
-      fetch(
-        `${filterurl}${this.state.mealId}`
-      )
+      fetch(`${filterurl}${this.state.mealId}`)
         .then((res) => res.json())
         .then((data) => {
           this.setState({ restaurantsList: data });

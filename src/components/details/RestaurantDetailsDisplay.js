@@ -100,11 +100,10 @@ class RestaurantDetails extends Component {
                   <div className="avg-box">
                     <h3 className="avg-text">Rating</h3>
                     <div className="avg-info">
+                      <h4>{this.props.restaurantDetail.rating_text}</h4>
                       <h4>
-                        {this.props.restaurantDetail.rating_text}
-                      </h4>
-                      <h4>
-                        Avg. Rating: {this.props.restaurantDetail.average_rating}
+                        Avg. Rating:{" "}
+                        {this.props.restaurantDetail.average_rating}
                       </h4>
                     </div>
                   </div>
@@ -145,13 +144,15 @@ class RestaurantDetails extends Component {
 
   renderGallery = () => {
     if (this.props.restaurantDetail) {
-      return this.props.restaurantDetail.image_gallery.map((res_image,index) => {
-        return (
-          <div className="img-gal" key={index}>
-            <img src={res_image} alt="menuImage" />
-          </div>
-        );
-      });
+      return this.props.restaurantDetail.image_gallery.map(
+        (res_image, index) => {
+          return (
+            <div className="img-gal" key={index}>
+              <img src={res_image} alt="menuImage" />
+            </div>
+          );
+        }
+      );
     }
   };
 
