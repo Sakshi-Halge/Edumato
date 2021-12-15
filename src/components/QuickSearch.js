@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom'
 const QuickSearch = (props) => {
   const listMeal = ({ quicksearchdata }) => {
     if (quicksearchdata) {
-      return quicksearchdata.map((item) => {
+      return quicksearchdata.map((item,index) => {
         return (
-          <Link to={`/list/${item.mealtype_id}`}>
-            <div className="common-food-box" key={item.mealtype_id}>
+          <Link to={`/list/${item.mealtype_id}`} key={index}>
+            <div className="common-food-box">
               <div
                 className="food-img"
                 style={{ backgroundImage: `url(${item.meal_image})` }}
