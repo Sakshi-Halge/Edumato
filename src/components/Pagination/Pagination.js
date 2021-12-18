@@ -10,6 +10,20 @@ class Pagination extends Component {
       activeNum: 1,
     };
   }
+  changeInterval = (index) => {
+    this.props.setResIndexes(index * limit - limit, index * limit);
+    this.setState({ activeNum: index }, () => {
+      if (this.state.activeNum === 1) {
+        this.setState({ restrictedPrev: true }, () => {
+          this.setState({ restrictedNext: false });
+        });
+      } else if (this.state.activeNum === this.props.dataLen / limit) {
+        this.setState({ restrictedNext: true }, () => {
+          this.setState({ restrictedPrev: false });
+        });
+      }
+    });
+  };
 
   previousInterval = () => {
     if (this.state.activeNum > 1) {
