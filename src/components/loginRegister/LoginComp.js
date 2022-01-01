@@ -65,7 +65,7 @@ class LoginComp extends Component {
                   Password
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   id="password"
                   name="password"
                   value={this.state.password}

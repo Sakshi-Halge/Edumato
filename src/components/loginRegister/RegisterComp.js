@@ -88,7 +88,7 @@ class RegisterComp extends Component {
                   Password
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   id="password"
                   name="password"
                   required
