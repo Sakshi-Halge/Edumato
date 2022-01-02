@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./RegisterComp.css";
 
-const Posturl = "https://loginapiedu.herokuapp.com/api/auth/register";
+// const Posturl = "https://loginapiedu.herokuapp.com/api/auth/register";
+const Posturl = "http://localhost:6038/api/auth/register";
 class RegisterComp extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ class RegisterComp extends Component {
       email: "",
       phone: "",
       password: "",
+      isPresent: false,
     };
   }
 
@@ -20,7 +22,13 @@ class RegisterComp extends Component {
   };
 
   handleSubmit = () => {
-    sessionStorage.setItem("userdata", this.state);
+    sessionStorage.setItem("userdata", {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phone,
+      password: this.state.password,
+    });
+
     fetch(Posturl, {
       method: "POST",
       headers: {
@@ -29,15 +37,23 @@ class RegisterComp extends Component {
       },
       body: JSON.stringify(this.state),
     })
-    .then(
-      this.props.history.push('/login')
-      )
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ isPresent: data.isPresent });
+        if (!data.isPresent) {
+          this.props.history.push('/login')
+        }
+      });
   };
 
   render() {
     return (
       <>
         <div className="form_wrapper">
+          <h2 className={this.state.isPresent ? "msg" : ""}>
+            User already exists
+          </h2>
+
           <div className="form_container">
             <h2 className="title_container">Register</h2>
             <div className="form-feilds">
@@ -115,7 +131,6 @@ class RegisterComp extends Component {
       </>
     );
   }
-
 }
 
 export default RegisterComp;
