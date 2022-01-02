@@ -75,9 +75,6 @@ class LoginComp extends Component {
               </div>
             </div>
             <div className="btns">
-              <Link to="/">
-                <button className="cancel">Cancel</button>
-              </Link>
               <button
                 className="register"
                 type="submit"
